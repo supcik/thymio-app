@@ -14,8 +14,11 @@ thymioApp.controller('ThymioCtrl', ['$scope', function($scope) {
 			function(selected_devices) {
 				console.debug("In function");
 				console.debug(selected_devices.length)
-				// $scope.devices = selected_devices;
-				$scope.statusx = "Connected";
+				var scope = angular.element($("#bodyController")).scope();
+				scope.$apply(function(){
+					// scope.devices = selected_devices;
+                                	scope.statusx = "Connected";
+				}
 			}
 		);
 		console.debug("End of process");
