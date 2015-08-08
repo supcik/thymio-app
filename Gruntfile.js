@@ -12,7 +12,18 @@ module.exports = function(grunt) {
           {
             src: ['src/html/*.jade'],
             expand: true, flatten: true, ext: ".html",
-            dest: 'build/html/'}
+            dest: 'build/html/'
+          }
+        ]
+      }
+    },
+    less: {
+      compile: {
+        files: [
+          {
+            src: ['src/css/main.less'],
+            expand: true, flatten: true, dest: 'build/css/'
+          }
         ]
       }
     },
@@ -86,8 +97,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-typescript');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-less');
 
   // Default task(s).
-  grunt.registerTask('default', ['copy', 'jade', 'typescript']);
+  grunt.registerTask('default', ['copy', 'jade', 'less', 'typescript']);
 
 };
