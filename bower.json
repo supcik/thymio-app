@@ -1,0 +1,23 @@
+{
+  "name": "ThymioApp",
+  "version": "0.0.0",
+  "authors": [
+    "Jacques Supcik <jacques.supcik@hefr.ch>"
+  ],
+  "moduleType": [
+    "globals"
+  ],
+  "license": "Apache-2",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angularjs": "~1.4.3",
+    "bootstrap": "~3.3.5",
+    "jquery": "~2.1.4"
+  }
+}
