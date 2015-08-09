@@ -1,7 +1,7 @@
 {
   "name": "ThymioApp",
   "description": "Thymio II Robot Interface",
-  "version": "0.0.0.1",
+  "version": "0.0.1",
   "manifest_version": 2,
   "app": {
     "background": {
