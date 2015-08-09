@@ -10,7 +10,7 @@ module.exports = function(grunt) {
         },
         files: [
           {
-            src: ['src/html/window.jade'],
+            src: ['src/window.jade'],
             dest: 'build/window.html'
           }
         ]
@@ -28,8 +28,11 @@ module.exports = function(grunt) {
     },
     typescript: {
       compile: {
-        src: ['src/js/*.ts'],
-        dest: 'build/js/'
+        files: [
+          {src: ['src/background.ts'], dest: 'build/'},
+          {src: ['src/js/*.ts'], dest: 'build/js/'}
+        ]
+        
       }
     },
     copy: {
@@ -78,6 +81,11 @@ module.exports = function(grunt) {
         ]
       }
     },
+    jshint: {
+      main: {
+        src: ['build/manifest.json', 'build/js/app.js']
+      }
+    },
     watch: {
       typescript: {
         files: ['src/**/*.ts'],
@@ -97,8 +105,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
 
   // Default task(s).
-  grunt.registerTask('default', ['copy', 'jade', 'less', 'typescript']);
+  grunt.registerTask('default', ['copy', 'jade', 'less', 'typescript', 'jshint']);
 
 };

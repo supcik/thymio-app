@@ -10,12 +10,15 @@ html(lang="en" data-ng-app="thymioApp")
   body#bodyController(data-ng-controller="ThymioCtrl")
     .container
       h1 Thymio II Interface
-      p {{ status }}
-      button.btn.btn-primary(data-ng-click="connectd()") Connect
-
-      ul
-        li(ng-repeat="p in devices").
-          {{ p }}
+      div
+        select#devlist
+          option(data-ng-repeat="i in devices"){{ i | devname }}
+      div
+        button.btn.btn-primary(data-ng-click="connectd()") Connect
+      div
+        ul
+          li(ng-repeat="p in devices").
+            {{ p }}
     script(src="js/jquery.min.js")
     script(src="js/bootstrap.min.js")
     script(src="js/angular.min.js")
