@@ -1,7 +1,7 @@
 {
   "name": "ThymioApp",
   "description": "Thymio II Robot Interface",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "manifest_version": 2,
   "app": {
     "background": {
@@ -9,7 +9,16 @@
     }
   },
   "permissions": [
-    "serial"
+    "serial",
+    "usb",
+    {
+      "usbDevices": [
+        {
+          "vendorId": 1559,
+          "productId": 10
+        }
+      ]
+    }
   ],
   "icons": {
     "16": "assets/thymio-16.png",

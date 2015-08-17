@@ -1,5 +1,5 @@
 doctype html
-html(lang="en" data-ng-app="thymioApp")
+html(lang="en" ng-app="thymioApp")
   head
     meta(charset="utf-8")
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
@@ -7,19 +7,22 @@ html(lang="en" data-ng-app="thymioApp")
     title Thymio II Interface
     link(rel="stylesheet" media="all" href="css/bootstrap.min.css")
     link(rel="stylesheet" media="all" href="css/main.css")
-  body#bodyController(data-ng-controller="ThymioCtrl")
+  body#bodyController(ng-controller="ThymioCtrl as ctrl")
     .container
       h1 Thymio II Interface
+      div.
+        Port: {{ ctrl.port }}
       div
-        select#devlist
-          option(data-ng-repeat="i in devices"){{ i | devname }}
+        select#devlist(ng-model="ctrl.port")
+          option(ng-repeat="i in ctrl.devices()" value="{{ i.path }}") {{ i | devname}}
       div
-        button.btn.btn-primary(data-ng-click="connectd()") Connect
+        button.btn.btn-primary#getdesc(ng-click="ctrl.getdesc()") Connect
       div
         ul
-          li(ng-repeat="p in devices").
+          li(ng-repeat="p in ctrl.devices()").
             {{ p }}
     script(src="js/jquery.min.js")
     script(src="js/bootstrap.min.js")
     script(src="js/angular.min.js")
+    script(src="js/thymio2.js")
     script(src="js/app.js")

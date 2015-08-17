@@ -86,6 +86,13 @@ module.exports = function(grunt) {
         src: ['build/manifest.json', 'build/js/app.js']
       }
     },
+    zip: {
+      main: {
+        cwd: 'build/',
+        src: ['build/**'],
+        dest: '<%= pkg.name %>-<%= pkg.version %>.zip'
+      }
+    },
     watch: {
       typescript: {
         files: ['src/**/*.ts'],
@@ -106,6 +113,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-zip');
 
   // Default task(s).
   grunt.registerTask('default', ['copy', 'jade', 'less', 'typescript', 'jshint']);
